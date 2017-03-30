@@ -2,6 +2,6 @@ This application gives health and fitness educators information about the health
 
 Educators are provided with relavent articles and assignments for students to complete. 
 
-Students fill out a survey. This application converts it to activities that teachers can assign. 
+Students fill out a survey. This application converts that data into activities that teachers can assign. 
 
 This application is a supplement to health and fitness curriculum.
