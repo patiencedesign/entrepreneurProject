@@ -1,7 +1,7 @@
 var studentPassword = "student"
 var teacherPassword = "teacher"
 
-console.log("Hello")
+console.log("Your Javascript works.")
 
 // Login Logic
 
@@ -29,23 +29,33 @@ var url = "https://spreadsheets.google.com/feeds/list/1cPYR2mkb07_pxVQebSWKDjQ1E
 $.getJSON(url, function(response){
     url = response;
     
-    console.log(
-        url.feed.entry[0].gsx$age,url.feed.entry[0].gsx$heightfeetinches,url.feed.entry[0].gsx$weightlbs,url.feed.entry[0].gsx$sex
-        )
+    // console.log(
+    //     url.feed.entry[0].gsx$age,url.feed.entry[0].gsx$heightfeetinches,url.feed.entry[0].gsx$weightlbs,url.feed.entry[0].gsx$sex
+    //     )
         
             
     for(i = 0; i < url.feed.entry.length; i++){
         $("#studentData").append(
             
-            url.feed.entry[i].gsx$age.$t + "<br>",
+            "<div class='col-md-2'><div class='well well-lg'>" +
+            
+            url.feed.entry[i].gsx$age.$t + "<br>" +
     
-            url.feed.entry[i].gsx$height.$t + "<br>",
+            url.feed.entry[i].gsx$height.$t + "<br>" +
             
-            url.feed.entry[i].gsx$weightlbs.$t + "<br>",
+            url.feed.entry[i].gsx$weightlbs.$t + "<br>" +
             
-            url.feed.entry[i].gsx$sex.$t + "<br>"
+            url.feed.entry[i].gsx$sex.$t + "<br>" +
+            
+            "</div></div>"
             
             )
     }
 });
+
+$("#enGraph").click(function(){
+    console.log("You have enabled graphs.")
+    
+    $("#studentData").hide()
+})
 
