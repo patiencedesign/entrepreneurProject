@@ -22,7 +22,6 @@ $("#loginButton").click(function(){
     }
 });
 
-
 // Google JSON Data to Teacher Portal
 
 var url = "https://spreadsheets.google.com/feeds/list/1cPYR2mkb07_pxVQebSWKDjQ1Ee_sfbwk4x_640chWoA/1/public/values?alt=json"
@@ -40,11 +39,13 @@ $.getJSON(url, function(response){
             
             url.feed.entry[i].gsx$age.$t + "<br>",
     
-            url.feed.entry[i].gsx$heightfeetinches.$t + "<br>",
+            url.feed.entry[i].gsx$height.$t + "<br>",
             
             url.feed.entry[i].gsx$weightlbs.$t + "<br>",
             
             url.feed.entry[i].gsx$sex.$t + "<br>"
+            
             )
     }
 });
+
