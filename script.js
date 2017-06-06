@@ -24,7 +24,7 @@ $("#loginButton").click(function(){
 
 // Google JSON Data to Teacher Portal
 
-var url = "https://spreadsheets.google.com/feeds/list/1cPYR2mkb07_pxVQebSWKDjQ1Ee_sfbwk4x_640chWoA/1/public/values?alt=json"
+var url = "https://spreadsheets.google.com/feeds/list/14Ia62bl8uyZImRmxvqQNPMXZpiKQAcbG0AGLI0Tn2hs/1/public/values?alt=json"
 
 $.getJSON(url, function(response){
     url = response;
@@ -37,15 +37,17 @@ $.getJSON(url, function(response){
     for(i = 0; i < url.feed.entry.length; i++){
         $("#studentData").append(
             
-            "<div class='col-md-2'><div class='well well-lg'>" +
+            "<div class='col-md-3'><div class='well well-lg'>" +
             
-            url.feed.entry[i].gsx$age.$t + "<br>" +
-    
-            url.feed.entry[i].gsx$height.$t + "<br>" +
-            
-            url.feed.entry[i].gsx$weightlbs.$t + "<br>" +
+            url.feed.entry[i].gsx$age.$t + " years old<br>" + 
             
             url.feed.entry[i].gsx$sex.$t + "<br>" +
+            
+            url.feed.entry[i].gsx$height.$t + " ft<br>" +
+            
+            url.feed.entry[i].gsx$weightlbs.$t + " lbs<br>" +
+            
+            url.feed.entry[i].gsx$illnesses.$t + 
             
             "</div></div>"
             
