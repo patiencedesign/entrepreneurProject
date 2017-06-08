@@ -68,23 +68,14 @@ $.getJSON(url, function(response){
 });
 
 
-$("#enGraph").click(function(){
-    console.log("You have enabled graphs.")
-    $("#studentData").hide()
-    $("#dataTables").hide()
-    $("#graphs").show()
-})
-
 $("#enTable").click(function(){
     console.log("You have enabled data tables.")
     $("#studentData").hide()
-    $("#graphs").hide()
     $("#dataTables").show()
 })
 
 $("#title").click(function(){
     $("#dataTables").hide()
-    $("#graphs").hide()
     $("#studentData").show()
 })
 
