@@ -28,7 +28,7 @@ var healthData = [];
 
 // Google JSON Data to Teacher Portal
 
-var url = "https://spreadsheets.google.com/feeds/list/14Ia62bl8uyZImRmxvqQNPMXZpiKQAcbG0AGLI0Tn2hs/1/public/values?alt=json"
+var url = "https://spreadsheets.google.com/feeds/list/19SDw8uxESTlGUPiTfb6BUisd7wc8rQAFzJaKHRhdXEA/1/public/values?alt=json"
 
 $.getJSON(url, function(response){
     url = response;
@@ -47,7 +47,7 @@ $.getJSON(url, function(response){
             
             url.feed.entry[i].gsx$weightlbs.$t + " lbs<br>" +
             
-            url.feed.entry[i].gsx$illnesses.$t + 
+            url.feed.entry[i].gsx$concerns.$t + 
             
             "</div></div>"
             
@@ -57,7 +57,7 @@ $.getJSON(url, function(response){
     
     for(i = 0; i < url.feed.entry.length; i++){
         healthData.push(
-            [url.feed.entry[i].gsx$age.$t, url.feed.entry[i].gsx$sex.$t, url.feed.entry[i].gsx$height.$t, url.feed.entry[i].gsx$weightlbs.$t, url.feed.entry[i].gsx$illnesses.$t]
+            [url.feed.entry[i].gsx$age.$t, url.feed.entry[i].gsx$sex.$t, url.feed.entry[i].gsx$height.$t, url.feed.entry[i].gsx$weightlbs.$t, url.feed.entry[i].gsx$concerns.$t]
         )
     }
     console.log(healthData)
