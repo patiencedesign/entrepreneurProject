@@ -1,5 +1,5 @@
-var studentPassword = "student"
-var teacherPassword = "teacher"
+var studentPassword = "student";
+var teacherPassword = "teacher";
 
 console.log("Your Javascript works.")
 
@@ -22,6 +22,10 @@ $("#loginButton").click(function(){
     }
 });
 
+//Data Tables Data
+
+var healthData = [];
+
 // Google JSON Data to Teacher Portal
 
 var url = "https://spreadsheets.google.com/feeds/list/14Ia62bl8uyZImRmxvqQNPMXZpiKQAcbG0AGLI0Tn2hs/1/public/values?alt=json"
@@ -29,15 +33,11 @@ var url = "https://spreadsheets.google.com/feeds/list/14Ia62bl8uyZImRmxvqQNPMXZp
 $.getJSON(url, function(response){
     url = response;
     
-    // console.log(
-    //     url.feed.entry[0].gsx$age,url.feed.entry[0].gsx$heightfeetinches,url.feed.entry[0].gsx$weightlbs,url.feed.entry[0].gsx$sex
-    //     )
-        
             
     for(i = 0; i < url.feed.entry.length; i++){
         $("#studentData").append(
             
-            "<div class='col-md-3'><div class='well well-lg'>" +
+            "<div class='col-md-4' id='dataBlock'><div class='well well-lg'>" +
             
             url.feed.entry[i].gsx$age.$t + " years old<br>" + 
             
@@ -53,11 +53,39 @@ $.getJSON(url, function(response){
             
             )
     }
+    
+    
+    for(i = 0; i < url.feed.entry.length; i++){
+        healthData.push(
+            [url.feed.entry[i].gsx$age.$t, url.feed.entry[i].gsx$sex.$t, url.feed.entry[i].gsx$height.$t, url.feed.entry[i].gsx$weightlbs.$t, url.feed.entry[i].gsx$illnesses.$t]
+        )
+    }
+    console.log(healthData)
+    
+    $("#actualTable").DataTable({
+        data: healthData
+    })
 });
+
 
 $("#enGraph").click(function(){
     console.log("You have enabled graphs.")
-    
     $("#studentData").hide()
+    $("#dataTables").hide()
+    $("#graphs").show()
 })
+
+$("#enTable").click(function(){
+    console.log("You have enabled data tables.")
+    $("#studentData").hide()
+    $("#graphs").hide()
+    $("#dataTables").show()
+})
+
+$("#title").click(function(){
+    $("#dataTables").hide()
+    $("#graphs").hide()
+    $("#studentData").show()
+})
+
 

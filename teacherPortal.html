@@ -4,18 +4,48 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+
         
+        
+        <style type="text/css">
+            #graphs, #dataTables{
+                display: none;
+            }
+        </style>        
     </head>
     <body>
         <div class="container text-center">
-            <h1><a href="index.html">Teachers Portal</a></h1>
+            <h1><a id="title" href="#">Teachers Portal</a></h1>
             <a id="enGraph" href="#">Enable Graphs</a>
+            <br>
+            <a id="enTable" href="#">Enable Data Table</a>
             
             <ul class="nav nav-tabs">
               <li class="active"><a href="#">Class A</a></li>
             </ul>
             <br>
             <div id="studentData"></div>
+            <div id="graphs">
+                <h3>Graphs</h3>
+            </div>
+            <div id="dataTables" style="marign:5px">
+                <table id="actualTable" style="width:100%">
+                    <thead>
+                      <tr>
+                          <th>Age</th>
+                          <th>Sex</th>
+                          <th>Height</th>
+                          <th>Weight</th>
+                          <th>Concerns</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                 </table>
+                
+            </div>
         </div>
     </body>
     <script type="text/javascript" src="script.js"></script>
